@@ -16,6 +16,14 @@ Ceci est un exercice pour montrer comment mettre en place un jeu du morpion en T
 - Pour être plus balèze en terminal : apprendre git bash (pour les alias)
 - comment taper plus vite : les sites de jeux comme keybr sont super.
 
+## Consignes pour finir le projet :
+
+- classe Morpion JS :
+  - finir checkVictory
+  - implémenter la boucle dans gameLoop : elle se termine que quand `finished` donc quand toutes les cases sont remplies ou quand quelqueu'un gagne
+- html : lier chaque case / bouton / div... aux cases de js.
+- css : un peu de styling pour se la péter auprès des recruteurs.
+
 ## Étapes (corrigé)
 
 ### 0. Réfléchir
