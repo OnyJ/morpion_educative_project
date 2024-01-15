@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/OnyJ/morpion_educative_project/issues"
   },
-  "homepage": "https://github.com/OnyJ/morpion_educative_project#readme"
+  "homepage": "https://github.com/OnyJ/morpion_educative_project#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
