@@ -50,6 +50,7 @@ class Morpion {
     if (btwZeroAndNine && cellIsEmpty) {
       this.cells[Number(choice) - 1] = player;
     } else {
+      console.log("Nan, rejoue.")
       this.play(player);
     }
 
