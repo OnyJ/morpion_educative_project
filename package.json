@@ -18,5 +18,8 @@
   "homepage": "https://github.com/OnyJ/morpion_educative_project#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
   }
 }
