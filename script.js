@@ -8,35 +8,16 @@ class Morpion {
   }
 
   showBoard() {
-    console.log(
-      " " +
-        this.cells[0] +
-        " | " +
-        this.cells[1] +
-        " | " +
-        this.cells[2] +
-        " "
-    );
-    console.log("---|---|---");
-    console.log(
-      " " +
-        this.cells[3] +
-        " | " +
-        this.cells[4] +
-        " | " +
-        this.cells[5] +
-        " "
-    );
-    console.log("---|---|---");
-    console.log(
-      " " +
-        this.cells[6] +
-        " | " +
-        this.cells[7] +
-        " | " +
-        this.cells[8] +
-        " "
-    );
+    for (let i = 0; i < 9; i += 3) {
+      console.log(
+        ` ${this.cells[i]} | ${this.cells[i + 1]} | ${
+          this.cells[i + 2]
+        } `
+      );
+      if (i < 6) {
+        console.log("---|---|---");
+      }
+    }
   }
 
   play(player) {
