@@ -49,5 +49,7 @@ class Morpion {
   }
 }
 
-const m = new Morpion();
-m.gameLoop();
+// const m = new Morpion();
+// m.gameLoop();
+
+module.exports = Morpion;
