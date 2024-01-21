@@ -40,17 +40,18 @@ class Morpion {
   }
 
   play(player) {
+    console.clear();
     console.log("Joueur " + player + " joue.");
     this.showBoard();
 
     const choice = prompt("Choisis une case (entre 1 et 9)");
-    const btwZeroAndNine = Number(choice) > 0 && Number(choice) < 10;
+    const numberIsValid = Number(choice) > 0 && Number(choice) < 10;
     const cellIsEmpty = this.cells[Number(choice) - 1] === "";
 
-    if (btwZeroAndNine && cellIsEmpty) {
+    if (numberIsValid && cellIsEmpty) {
       this.cells[Number(choice) - 1] = player;
     } else {
-      console.log("Nan, rejoue.")
+      console.log("Nan, rejoue.");
       this.play(player);
     }
 
