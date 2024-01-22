@@ -39,17 +39,54 @@ class Morpion {
     this.showBoard();
   }
 
-  checkVictory() {}
+  checkVictory(symbol) {
+    const winningCombinations = [
+      // Horizontal Win
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      // Vertical Win
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      // Diagonal Win
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (let i = 0; i < winningCombinations.length; i++) {
+      const [a, b, c] = winningCombinations[i];
+
+      if (
+        this.cells[a] === symbol &&
+        this.cells[b] === symbol &&
+        this.cells[c] === symbol
+      ) {
+        console.log("Joueur " + symbol + " gagne !");
+        return true;
+      }
+      return false;
+    }
+  }
 
   gameLoop() {
-    this.play(this.player1);
-    this.checkVictory();
-    this.play(this.player2);
-    this.checkVictory();
+    for (let i = 0; i < this.cells.length; i++) {
+      this.play(this.player1);
+      if (this.checkVictory(this.player1)) {
+        return;
+      }
+
+      this.play(this.player2);
+      if (this.checkVictory(this.player2)) {
+        console.log("victoire 2");
+        return;
+      }
+    }
   }
 }
 
 // const m = new Morpion();
 // m.gameLoop();
+// m.checkVictory();
 
 module.exports = Morpion;
