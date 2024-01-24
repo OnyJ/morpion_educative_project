@@ -82,15 +82,17 @@ class Morpion {
 
   gameLoop() {
     let i = 0;
+    let currentPlayer = "";
 
     while (i < this.cells.length && this.isGameOver === false) {
       if (i % 2 === 0) {
-        this.play(this.player1);
-        // this.checkVictory(this.player1);
+        currentPlayer = this.player1;
       } else {
-        this.play(this.player2);
-        // this.checkVictory(this.player2);
+        currentPlayer = this.player2;
       }
+
+      this.play(currentPlayer);
+      // this.checkVictory(currentPlayer);
       i++;
     }
   }
