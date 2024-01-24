@@ -4,6 +4,24 @@
 
 Ceci est un exercice pour montrer comment mettre en place un jeu du morpion en TDD en HTML CSS JS.
 
+## Comment utiliser le projet ?
+
+### Pour jouer en console
+
+1. Ouvrir le terminal et aller dans le projet
+2. Dans `script.js`, ajouter ces lignes à la fin du fichier
+  ```js
+  const m = new Morpion();
+  m.gameLoop();
+  ```
+3. Lancer le script en faisant `node script.js`
+
+### Pour lancer les tests (en console)
+
+1. S'assurer que tout a été installé `npm install`
+2. Lancer les tests : `npm test` (comme précisé dans le `package.json`)
+
+
 ## Exemples
 
 - Adam Nagy
