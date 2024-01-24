@@ -96,7 +96,4 @@ class Morpion {
   }
 }
 
-const m = new Morpion();
-m.gameLoop();
-
 module.exports = Morpion;
