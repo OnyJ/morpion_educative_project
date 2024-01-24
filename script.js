@@ -25,12 +25,13 @@ class Morpion {
     console.log("Joueur " + player + " joue.");
     this.showBoard();
 
-    const choice = prompt("Choisis une case (entre 1 et 9)");
-    const numberIsValid = Number(choice) > 0 && Number(choice) < 10;
-    const cellIsEmpty = this.cells[Number(choice) - 1] === "";
+    let choice = prompt("Choisis une case (entre 1 et 9)");
+    choice = Number(choice);
+    const numberIsValid = choice > 0 && choice < 10;
+    const cellIsEmpty = this.cells[choice - 1] === "";
 
     if (numberIsValid && cellIsEmpty) {
-      this.cells[Number(choice) - 1] = player;
+      this.cells[choice - 1] = player;
     } else {
       console.log("Nan, rejoue.");
       this.play(player);
@@ -55,7 +56,7 @@ class Morpion {
     ];
 
     for (let i = 0; i < winningCombinations.length; i++) {
-      const [a, b, c] = winningCombinations[i];
+      const [a, b, c] = winningCombinations[i]; // destructuration
 
       if (
         this.cells[a] === symbol &&
