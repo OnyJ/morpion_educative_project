@@ -74,8 +74,6 @@ class Morpion {
       ) {
         console.log("Joueur " + symbol + " gagne !");
         this.isGameOver = true;
-      } else {
-        this.isGameOver = false;
       }
     }
   }
@@ -92,7 +90,7 @@ class Morpion {
       }
 
       this.play(currentPlayer);
-      // this.checkVictory(currentPlayer);
+      this.checkVictory(currentPlayer);
       i++;
     }
   }
@@ -100,6 +98,5 @@ class Morpion {
 
 const m = new Morpion();
 m.gameLoop();
-// m.checkVictory();
 
 module.exports = Morpion;
