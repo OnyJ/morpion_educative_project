@@ -44,7 +44,29 @@ describe("entering horizontal winning combinations creates a victory", () => {
 });
 
 describe("entering vertical winning combinations creates a victory", () => {
-  // Remplissez ici
+  test("when first column wins", () => {
+    const m = new Morpion();
+    m.cells = ["X", "O", "X", "X", "X", "O", "X", "O", "X"];
+    console.log = jest.fn();
+    m.checkVictory("X");
+    expect(console.log).toHaveBeenCalledWith("Joueur X gagne !");
+  });
+
+  test("when second column wins", () => {
+    const m = new Morpion();
+    m.cells = ["O", "X", "X", "X", "X", "O", "O", "X", "X"];
+    console.log = jest.fn();
+    m.checkVictory("X");
+    expect(console.log).toHaveBeenCalledWith("Joueur X gagne !");
+  });
+
+  test("when third column wins", () => {
+    const m = new Morpion();
+    m.cells = ["O", "X", "X", "X", "O", "X", "O", "X", "X"];
+    console.log = jest.fn();
+    m.checkVictory("X");
+    expect(console.log).toHaveBeenCalledWith("Joueur X gagne !");
+  });
 });
 
 describe("entering diagonal winning combinations creates a victory", () => {
