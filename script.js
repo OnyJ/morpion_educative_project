@@ -4,6 +4,7 @@ class Morpion {
   constructor() {
     this.player1 = "X";
     this.player2 = "O";
+    this.isGameOver = false;
     this.cells = ["", "", "", "", "", "", "", "", ""];
   }
 
@@ -25,19 +26,27 @@ class Morpion {
     console.log("Joueur " + player + " joue.");
     this.showBoard();
 
-    let choice = prompt("Choisis une case (entre 1 et 9)");
-    choice = Number(choice);
-    const numberIsValid = choice > 0 && choice < 10;
-    const cellIsEmpty = this.cells[choice - 1] === "";
+    console.log(
+      "Choisis une case (entre 1 et 9) ou entre 'quit' pour quitter le jeu"
+    );
+    let choice = prompt("> ");
 
-    if (numberIsValid && cellIsEmpty) {
-      this.cells[choice - 1] = player;
+    if (choice === "quit") {
+      this.isGameOver = true;
     } else {
-      console.log("Nan, rejoue.");
-      this.play(player);
-    }
+      choice = Number(choice);
+      const numberIsValid = choice > 0 && choice < 10;
+      const cellIsEmpty = this.cells[choice - 1] === "";
 
-    this.showBoard();
+      if (numberIsValid && cellIsEmpty) {
+        this.cells[choice - 1] = player;
+      } else {
+        console.log("Nan, rejoue.");
+        this.play(player);
+      }
+
+      this.showBoard();
+    }
   }
 
   checkVictory(symbol) {
@@ -64,30 +73,31 @@ class Morpion {
         this.cells[c] === symbol
       ) {
         console.log("Joueur " + symbol + " gagne !");
-        return true;
+        this.isGameOver = true;
+      } else {
+        this.isGameOver = false;
       }
-      return false;
     }
   }
 
   gameLoop() {
-    for (let i = 0; i < this.cells.length; i++) {
-      this.play(this.player1);
-      if (this.checkVictory(this.player1)) {
-        return;
-      }
+    let i = 0;
 
-      this.play(this.player2);
-      if (this.checkVictory(this.player2)) {
-        console.log("victoire 2");
-        return;
+    while (i < this.cells.length && this.isGameOver === false) {
+      if (i % 2 === 0) {
+        this.play(this.player1);
+        // this.checkVictory(this.player1);
+      } else {
+        this.play(this.player2);
+        // this.checkVictory(this.player2);
       }
+      i++;
     }
   }
 }
 
-// const m = new Morpion();
-// m.gameLoop();
+const m = new Morpion();
+m.gameLoop();
 // m.checkVictory();
 
 module.exports = Morpion;
